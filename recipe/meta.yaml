@@ -1,13 +1,13 @@
 {% set name = "cubo" %}
-{% set version = "2024.8.0" %}
+{% set version = "2026.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cubo-{{ version }}.tar.gz
-  sha256: d93dedcfa8b2fa123357236050653017b3dce4e14ab6e0d2c069cbebffef2eb1
+  url: https://pypi.org/packages/source/c/cubo/cubo-{{ version }}.tar.gz
+  sha256: 11813daa18418b0cac26ad431770ea5aa98d0b28ce62aec0a82ff45276c47675
 
 build:
   noarch: python
@@ -16,17 +16,19 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python >=3.10
+    - setuptools >=68
+    - wheel
     - pip
   run:
-    - python >=3.9
+    - python >=3.10
     - dask-core >=2023.7.0
-    - numpy <2.0.0
+    - numpy
     - pandas >=2.0.3
     - planetary-computer >=1.0.0
     - pystac-client >=0.7.2
     - scipy >=1.12.0
-    - stackstac >=0.4.4
+    - stackstac >=0.5.1
     - xarray >=2023.6.0
 
 test:
